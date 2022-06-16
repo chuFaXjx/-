@@ -1,12 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>三味书屋</title>
 </head>
+
 <body>
-    
+    <!-- 头部区域 -->
+    <header class="header">
+        <div class="npv">
+            <div class="logo">
+                <a href="">
+                    <h1>三味书屋</h1>
+                </a>
+            </div>
+            <!-- <div class="col-lg-6 search"> -->
+            <div class="input-group search">
+                <input type="text" class="form-control" placeholder="请输入书名">
+                <span class="input-group-btn">
+                    <button class="btn btn-default glyphicon glyphicon-search" type="button"></button>
+                </span>
+            </div>
+            <!-- </div> -->
+            <div class="manage">
+                <a href="">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    <i class="book">书籍管理</i>
+                </a>
+            </div>
+            <div class="top">
+                <a href="">
+                    <span class="glyphicon glyphicon-signal"></span>
+                    <i class="paihang">排行榜</i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 轮播图区域 -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <!-- <div class="swiper-slide"><img src="../练习/图片素材/瀑布流/images/9.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../练习/图片素材/瀑布流/images/9.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../练习/图片素材/瀑布流/images/9.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../练习/图片素材/瀑布流/images/9.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../练习/图片素材/瀑布流/images/9.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../练习/图片素材/瀑布流/images/9.jpg" alt=""></div> -->
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <!-- 排行榜区域 -->
+    <h2>排行榜</h2>
+    <div class="topBox">
+        <!-- <img src="../练习/图片素材/瀑布流/images/9.jpg" alt="">
+        <img src="../练习/图片素材/瀑布流/images/9.jpg" alt="">
+        <img src="../练习/图片素材/瀑布流/images/9.jpg" alt="">
+        <img src="../练习/图片素材/瀑布流/images/9.jpg" alt="">
+        <img src="../练习/图片素材/瀑布流/images/9.jpg" alt=""> -->
+    </div>
+
+    <!-- 页脚区域 -->
+    <footer class="footer">
+        <p class="bq">© 2022 三味书屋 隐私政策 京ICP证080268号 京ICP备10005211号</p>
+    </footer>
 </body>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/swiper-bundle.min.js"></script>
+<script src="./js/index.js"></script>
+
 </html>
