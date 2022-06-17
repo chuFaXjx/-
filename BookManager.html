@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三味书屋-书籍管理</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/layui.css">
+    <link rel="stylesheet" href="./css/head&&foot.css">
+    <link rel="stylesheet" href="./css/BookManager.css">
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header class="header">
+        <div class="npv">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>三味书屋</h1>
+                </a>
+            </div>
+            <!-- <div class="col-lg-6 search"> -->
+            <div class="input-group search">
+                <input type="text" class="form-control" placeholder="请输入书名" id="searchInput">
+                <ul class="searchLists">
+                    <!-- <a href="#">
+                            <li class="searchList"></li>
+                        </a> -->
+                </ul>
+                <span class="input-group-btn">
+                    <button class="btn btn-default glyphicon glyphicon-search" id="btn" type="button"></button>
+                </span>
+            </div>
+            <!-- </div> -->
+            <div class="manage">
+                <a href="">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    <i class="book">书籍管理</i>
+                </a>
+            </div>
+            <div class="top">
+                <a href="">
+                    <span class="glyphicon glyphicon-signal"></span>
+                    <i class="paihang">排行榜</i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 表格区域 -->
+    <table class="layui-hide" id="test"></table>
+
+
+    <!-- 页脚区域 -->
+    <footer class="footer">
+        <p class="bq">© 2022 三味书屋 隐私政策 京ICP证080268号 京ICP备10005211号</p>
+    </footer>
+</body>
+<script src="./js/jquery.js"></script>
+<script src="./js/axios.min.js"></script>
+<script src="./js/layui.js"></script>
+<script src="./js/BookManager.js"></script>
+
+</html>
