@@ -1,0 +1,38 @@
+.detailBox {
+    width: 100%;
+    height: calc(100vh - 230px);
+}
+
+.bookMore {
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    align-items: center;
+    font-size: 17px;
+}
+
+.bookMore img {
+    width: 30%;
+    height: 80%;
+}
+
+.bookText {
+    width: 70%;
+    height: 60%;
+    margin-left: 30px;
+}
+
+.bookInfo {
+    line-height: 30px;
+    margin-top: 10px;
+}
+
+.bookInfo .em {
+    font-weight: bold;
+}
+

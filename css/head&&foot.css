@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+i {
+    font-style: normal;
+}
+
+li {
+    list-style: none;
+}
+
+.header {
+    background-color: #333333;
+    height: 60px;
+}
+
+.npv {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    flex: 2;
+    height: 60px;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 23px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.search {
+    flex: 2;
+    margin-right: 100px;
+    position: relative;
+}
+
+input[type="text"] {
+    margin-top: 15px;
+}
+
+.searchLists {
+    display: none;
+    position: absolute;
+    width: 326;
+    height: 67px;
+    top: 55px;
+    background-color: #fff;
+}
+
+.searchList a {
+    display: inline-block;
+    color: #000;
+    width: 300px;
+    height: 41px;
+    text-align: center;
+    line-height: 41px;
+    box-shadow: 8px 8px 4px #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+#btn {
+    margin-top: 2px;
+    outline: none;
+}
+
+.manage {
+    flex: 1;
+    height: 60px;
+}
+
+.book {
+    font-size: 16px;
+    line-height: 60px;
+}
+
+.top {
+    flex: 1;
+    height: 60px;
+}
+
+.paihang {
+    font-size: 16px;
+    line-height: 60px;
+}
+
+.footer {
+    height: 150px;
+    background-color: #333333;
+    overflow: hidden;
+}
+
+.bq {
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 100px;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>详情页</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/head&&foot.css">
+    <link rel="stylesheet" href="./css/detailPage.css">
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header class="header">
+        <div class="npv">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>三味书屋</h1>
+                </a>
+            </div>
+            <!-- <div class="col-lg-6 search"> -->
+            <div class="input-group search">
+                <input type="text" class="form-control" placeholder="请输入书名" id="searchInput">
+                <ul class="searchLists">
+                    <!-- <a href="#">
+                            <li class="searchList"></li>
+                        </a> -->
+                </ul>
+                <span class="input-group-btn">
+                    <button class="btn btn-default glyphicon glyphicon-search" id="btn" type="button"></button>
+                </span>
+            </div>
+            <!-- </div> -->
+            <div class="manage">
+                <a href="">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    <i class="book">书籍管理</i>
+                </a>
+            </div>
+            <div class="top">
+                <a href="">
+                    <span class="glyphicon glyphicon-signal"></span>
+                    <i class="paihang">排行榜</i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 详情区域 -->
+    <div class="detailBox">
+        <div class="bookMore">
+            <img alt="" src="http://img3m5.ddimg.cn/30/21/23828835-1_w_17.jpg">
+            <div class="bookText">
+                <div class="bookInfo">
+                    <span class="em">书名：</span>
+                    <span id="text">水浒传</span>
+                </div>
+                <div class="bookInfo">
+                    <span class="em">作者：</span>
+                    <span id="text">罗贯中</span>
+                </div>
+                <div class="bookInfo">
+                    <span class="em">简介：</span>
+                    <span id="text">《水浒传》是中国历史上第一部用古白话文写成的歌颂农民起义的长篇章回体版块结构小说，以宋江领导的起义军为主要题材，通过一系列梁山英雄反抗压迫、英勇斗争的生动故事，暴露了北宋末年统治阶级的腐朽和残暴，揭露了当时尖锐对立的社会矛盾和“官逼民反”的残酷现实。</span>
+                </div>
+                <div class="bookInfo">
+                    <span class="em">评分：</span>
+                    <span id="text">星星</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚区域 -->
+    <footer class="footer">
+        <p class="bq">© 2022 三味书屋 隐私政策 京ICP证080268号 京ICP备10005211号</p>
+    </footer>
+</body>
+<script src="./js/jquery.js"></script>
+<script src="./js/axios.min.js"></script>   
+<script src="./js/detaiPage.js"></script>
+</html>
