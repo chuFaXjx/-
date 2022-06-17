@@ -1,28 +1,4 @@
-// 初始化轮播图
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    grabCursor: true, // 鼠标移入变为小手
-    effect: 'coverflow',// 切换效果为3D
-    autoplay: true,// 自动播放
-    loop: true,
-    centeredSlides: true,
-    coverflowEffect: {
-        rotate: 30,
-        stretch: 10,
-        depth: 60,
-        modifier: 2,
-        slideShadows: false
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-});
+
 
 
 searchBooks()
@@ -60,13 +36,37 @@ async function slideshow() {
             metod: 'get',
             url: 'http://localhost:3005/books'
         })
-        console.log(data.data);
         data.data.forEach(function (item, idx) {
             let div = $(`<div class="swiper-slide" id="eachSlide"></div>`)
             let img = $(`<img src="${item.coverImg}" alt="" id="slide""></img>`)
             $(div).append(img)
             $('#slideShow').append(div)
         })
+        // 初始化轮播图
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            grabCursor: true, // 鼠标移入变为小手
+            effect: 'coverflow',// 切换效果为3D
+            autoplay: true,// 自动播放
+            loop: true,
+            centeredSlides: true,
+            coverflowEffect: {
+                rotate: 30,
+                stretch: 10,
+                depth: 60,
+                modifier: 2,
+                slideShadows: false
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
     } catch (error) {
         console.log(error);
     }
