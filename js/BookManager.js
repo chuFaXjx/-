@@ -13,6 +13,8 @@ sortRateUp() // 根据评分排序  从小到大
 
 sortRateDown() // 根据评分排序  从大到小
 
+topScroll() // 点击返回顶部
+
 // 搜索书名
 function searchBooks() {
     $('.btn').click(async function () {
@@ -26,7 +28,7 @@ function searchBooks() {
                 }
             })
             data.data.forEach(function (item, idx) {
-                $('.searchLists').html('')
+                // $('.searchLists').html('')
                 let li = $(`
                         <li class="searchList"><a href="#">${item.name} 作者：${item.author}</a></li>
                     `)
@@ -65,7 +67,6 @@ function sortUp() {
             })
             $('.bookFrom tr:not(:first)').remove()
             show(data);
-            $('.up').css('disable', 'none');
         } catch (error) {
             console.log(error);
         }
@@ -84,10 +85,8 @@ function sortDown() {
                     _order: 'desc',
                 }
             })
-            console.log(data);
             $('.bookFrom tr:not(:first)').remove()
             show(data);
-            $('.down').css('disable', 'none');
         } catch (error) {
             console.log(error);
         }
@@ -108,7 +107,6 @@ function sortRateUp() {
             })
             $('.bookFrom tr:not(:first)').remove()
             show(data);
-            $('.rateUp').css('disable', 'none');
         } catch (error) {
             console.log(error);
         }
@@ -129,11 +127,31 @@ function sortRateDown() {
             })
             $('.bookFrom tr:not(:first)').remove()
             show(data);
-            $('.rateDown').css('disable', 'none');
         } catch (error) {
             console.log(error);
         }
     })
+}
+
+// 点击返回顶部
+function topScroll() {
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(document).scrollTop() <= 0) {
+                $("#topScroll").hide();
+            }
+            if ($(document).scrollTop() >= $(window).height()) {
+                $("#topScroll").show();
+                $("#topScroll").click(function () {
+                    // 设置滚动行为改为平滑的滚动
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth",
+                    });
+                });
+            }
+        });
+    });
 }
 
 // 渲染表格函数
@@ -147,7 +165,7 @@ function show(data) {
                     <td class="bookDesc">${item.desc}</td>
                     <td class="rate"><div class="test${idx}"></div></td>
                     <td class="handle">
-                        <a href="#"><span class="glyphicon glyphicon-paperclip"></span> 详情</a>
+                        <a href="detailPage.html?id=${item.id}"><span class="glyphicon glyphicon-paperclip"></span> 详情</a>
                         <a href="#"><span class="glyphicon glyphicon-edit"></span> 编辑</a>
                         <a href="#"><span class="glyphicon glyphicon-trash"></span> 删除</a>
                     </td>
@@ -167,3 +185,5 @@ function show(data) {
         $('.bookTop').append(tr)
     })
 }
+
+// 

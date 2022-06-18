@@ -1,9 +1,11 @@
 
 
 
-searchBooks()
-slideshow()
-topShow()
+searchBooks() // 搜索书名
+
+slideshow() // 渲染轮播图
+
+topShow() // 渲染排行榜
 
 // 搜索书名
 function searchBooks() {
@@ -20,7 +22,7 @@ function searchBooks() {
             data.data.forEach(function (item, idx) {
                 $('.searchLists').html('')
                 let li = $(`
-                        <li class="searchList"><a href="#">${item.name} 作者：${item.author}</a></li>
+                        <li class="searchList"><a href="detailPage.html?id=${item.id}">${item.name} 作者：${item.author}</a></li>
                     `)
                 $('.searchLists').append(li)
             })
@@ -39,7 +41,7 @@ async function slideshow() {
         })
         data.data.forEach(function (item, idx) {
             let div = $(`<div class="swiper-slide" id="eachSlide"></div>`)
-            let img = $(`<img src="${item.coverImg}" alt="" id="slide""></img>`)
+            let img = $(`<a href="detailPage.html?id=${item.id}"><img src="${item.coverImg}" alt="" id="slide""></img></a>`)
             $(div).append(img)
             $('#slideShow').append(div)
         })
@@ -47,7 +49,7 @@ async function slideshow() {
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 3,
             spaceBetween: 30,
-            grabCursor: true, // 鼠标移入变为小手
+            // grabCursor: true, // 鼠标移入变为小手
             effect: 'coverflow',// 切换效果为3D
             autoplay: true,// 自动播放
             autoplay: {
@@ -92,7 +94,7 @@ async function topShow() {
             }
         })
         data.data.forEach(function (item, idx) {
-            let img = $(`<img src="${item.coverImg}" alt="">`)
+            let img = $(`<a href="detailPage.html?id=${item.id}"><img src="${item.coverImg}" alt=""></a>`)
             $('.topBox').append(img)
         })
     } catch (error) {

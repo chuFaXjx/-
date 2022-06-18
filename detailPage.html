@@ -8,6 +8,7 @@
     <title>详情页</title>
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./layui/css/layui.css">
     <link rel="stylesheet" href="./css/head&&foot.css">
     <link rel="stylesheet" href="./css/detailPage.css">
 </head>
@@ -37,7 +38,7 @@
             <div class="manage">
                 <a href="">
                     <span class="glyphicon glyphicon-th-list"></span>
-                    <i class="book">书籍管理</i>
+                    <a class="book" href="BookManager.html">书籍管理</a>
                 </a>
             </div>
             <div class="top">
@@ -52,23 +53,23 @@
     <!-- 详情区域 -->
     <div class="detailBox">
         <div class="bookMore">
-            <img alt="" src="http://img3m5.ddimg.cn/30/21/23828835-1_w_17.jpg">
+            <img id="coverImg" alt="" src="">
             <div class="bookText">
                 <div class="bookInfo">
                     <span class="em">书名：</span>
-                    <span id="text">水浒传</span>
+                    <span class="bookName"></span>
                 </div>
                 <div class="bookInfo">
                     <span class="em">作者：</span>
-                    <span id="text">罗贯中</span>
+                    <span class="Author"></span>
                 </div>
                 <div class="bookInfo">
                     <span class="em">简介：</span>
-                    <span id="text">《水浒传》是中国历史上第一部用古白话文写成的歌颂农民起义的长篇章回体版块结构小说，以宋江领导的起义军为主要题材，通过一系列梁山英雄反抗压迫、英勇斗争的生动故事，暴露了北宋末年统治阶级的腐朽和残暴，揭露了当时尖锐对立的社会矛盾和“官逼民反”的残酷现实。</span>
+                    <span class="bookDesc"></span>
                 </div>
                 <div class="bookInfo">
                     <span class="em">评分：</span>
-                    <span id="text">星星</span>
+                    <span class="score"></span>
                 </div>
             </div>
         </div>
@@ -80,6 +81,8 @@
     </footer>
 </body>
 <script src="./js/jquery.js"></script>
-<script src="./js/axios.min.js"></script>   
+<script src="./js/axios.min.js"></script>
+<script src="./layui/layui.js"></script>
 <script src="./js/detaiPage.js"></script>
+
 </html>
