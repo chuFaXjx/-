@@ -16,6 +16,7 @@ function searchBooks() {
                 }
             })
             data.data.forEach(function (item, idx) {
+                $('.searchLists').html('')
                 let li = $(`
                         <li class="searchList"><a href="#">${item.name} 作者：${item.author}</a></li>
                     `)

@@ -1,8 +1,19 @@
 
-searchBooks()
+
+
+searchBooks()// 搜索书名
+
+booksShow() // 请求数据并渲染表格
+
+sortUp() //书名根据id排正序 从小到大
+
+sortDown() //书名根据id排倒序 从大到小
+
+sortRateUp() // 根据评分排序  从小到大
+
+sortRateDown() // 根据评分排序  从大到小
+
 // 搜索书名
-
-
 function searchBooks() {
     $('.btn').click(async function () {
         $('.searchLists').css('display', 'block')
@@ -15,6 +26,7 @@ function searchBooks() {
                 }
             })
             data.data.forEach(function (item, idx) {
+                $('.searchLists').html('')
                 let li = $(`
                         <li class="searchList"><a href="#">${item.name} 作者：${item.author}</a></li>
                     `)
@@ -26,22 +38,132 @@ function searchBooks() {
     })
 }
 
-layui.use('table', function () {
-    let table = layui.table;
+// 请求数据并渲染表格
+async function booksShow() {
+    try {
+        let { data } = await axios({
+            method: 'get',
+            url: 'http://localhost:3005/books'
+        })
+        show(data);
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-    table.render({
-        elem: '#test',
-        method:'get',
-        url: 'http://localhost:3005/books',
-        cellMinWidth: 100, //全局定义常规单元格的最小宽度
-        page: true ,//开启分页
-        cols: [[
-            { field: 'id', width: 180, title: '书名', sort: true, unresize :false,}
-            , { field: 'username', width: 100, unresize: false, title: '封面图' }
-            , { field: 'sex', width: 100, unresize: false, title: '作者' }
-            , { field: 'city', width: 300, unresize: false, title: '简介' }
-            , { field: 'score', width: 300, unresize: false, title: '评分', sort: true }
-            , { field: 'classify', width: 100, unresize: false, title: '操作' }
-        ]]
-    });
-});
+//书名根据id排正序 从小到大
+function sortUp() {
+    $('.up').click(async () => {
+        try {
+            let { data } = await axios({
+                method: 'get',
+                url: 'http://localhost:3005/books',
+                params: {
+                    _sort: 'id',
+                    _order: 'asc',
+                }
+            })
+            $('.bookFrom tr:not(:first)').remove()
+            show(data);
+            $('.up').css('disable', 'none');
+        } catch (error) {
+            console.log(error);
+        }
+    })
+}
+
+//书名根据id排倒序 从大到小
+function sortDown() {
+    $('.down').click(async () => {
+        try {
+            let { data } = await axios({
+                method: 'get',
+                url: 'http://localhost:3005/books',
+                params: {
+                    _sort: 'id',
+                    _order: 'desc',
+                }
+            })
+            console.log(data);
+            $('.bookFrom tr:not(:first)').remove()
+            show(data);
+            $('.down').css('disable', 'none');
+        } catch (error) {
+            console.log(error);
+        }
+    })
+}
+
+// 根据评分排序  从小到大
+function sortRateUp() {
+    $('.rateUp').click(async () => {
+        try {
+            let { data } = await axios({
+                method: 'get',
+                url: 'http://localhost:3005/books',
+                params: {
+                    _sort: 'rate',
+                    _order: 'asc',
+                }
+            })
+            $('.bookFrom tr:not(:first)').remove()
+            show(data);
+            $('.rateUp').css('disable', 'none');
+        } catch (error) {
+            console.log(error);
+        }
+    })
+}
+
+// 根据评分排序  从大到小
+function sortRateDown() {
+    $('.rateDown').click(async () => {
+        try {
+            let { data } = await axios({
+                method: 'get',
+                url: 'http://localhost:3005/books',
+                params: {
+                    _sort: 'rate',
+                    _order: 'desc',
+                }
+            })
+            $('.bookFrom tr:not(:first)').remove()
+            show(data);
+            $('.rateDown').css('disable', 'none');
+        } catch (error) {
+            console.log(error);
+        }
+    })
+}
+
+// 渲染表格函数
+function show(data) {
+    data.data.forEach(function (item, idx) {
+        let tr = $(`
+                <tr>
+                    <td class="bookName">${item.name}</td>
+                    <td class="coverImg"><img src="${item.coverImg}" alt=""></td>
+                    <td class="bookAuthor">${item.author}</td>
+                    <td class="bookDesc">${item.desc}</td>
+                    <td class="rate"><div class="test${idx}"></div></td>
+                    <td class="handle">
+                        <a href="#"><span class="glyphicon glyphicon-paperclip"></span> 详情</a>
+                        <a href="#"><span class="glyphicon glyphicon-edit"></span> 编辑</a>
+                        <a href="#"><span class="glyphicon glyphicon-trash"></span> 删除</a>
+                    </td>
+                </tr>`)
+
+        layui.use('rate', function () {
+            //渲染
+            layui.rate.render({
+                elem: '.test' + idx,
+                value: item.rate,
+                half: true,
+                text: true,
+                length: 10,
+                readonly: true,
+            })
+        });
+        $('.bookTop').append(tr)
+    })
+}

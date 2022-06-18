@@ -1,0 +1,65 @@
+.bookTop {
+    width: 85%;
+    height: 100%;
+    margin: 15px auto;
+    border: 1px solid #ccc;
+}
+
+.add {
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.bookFrom .up,.down,.rateUp,.rateDown {
+    cursor: pointer;
+}
+
+.bookFrom .bookName {
+    height: 20px;
+    width: 10%;
+}
+
+.bookFrom .coverImg {
+    height: 20px;
+    width: 10%;
+}
+
+.bookFrom .bookAuthor {
+    height: 20px;
+    width: 6%;
+}
+
+.bookFrom .bookDesc {
+    height: 20px;
+    width: 36%;
+}
+
+.bookFrom .rate {
+    width: 24%;
+    height: 20px;
+}
+
+.bookFrom .handle {
+    height: 20px;
+    width: 14%;
+}
+
+.bookTop tr {
+    height: 50px;
+}
+
+.bookTop tr,
+th,
+td {
+    border: 1px solid #ccc;
+}
+
+.bookTop .handle a {
+    color: black;
+    font-style: 16px;
+}
+
+.bookTop .coverImg img {
+    width: 100px;
+    height: 100px;
+}

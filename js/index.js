@@ -18,6 +18,7 @@ function searchBooks() {
                 }
             })
             data.data.forEach(function (item, idx) {
+                $('.searchLists').html('')
                 let li = $(`
                         <li class="searchList"><a href="#">${item.name} 作者：${item.author}</a></li>
                     `)
@@ -49,6 +50,11 @@ async function slideshow() {
             grabCursor: true, // 鼠标移入变为小手
             effect: 'coverflow',// 切换效果为3D
             autoplay: true,// 自动播放
+            autoplay: {
+                disableOnInteraction: false,
+                delay: 1000,
+                pauseOnMouseEnter: true,
+            },
             loop: true,
             centeredSlides: true,
             coverflowEffect: {

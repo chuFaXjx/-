@@ -8,7 +8,7 @@
     <title>三味书屋-书籍管理</title>
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/layui.css">
+    <link rel="stylesheet" href="./layui/css/layui.css">
     <link rel="stylesheet" href="./css/head&&foot.css">
     <link rel="stylesheet" href="./css/BookManager.css">
 </head>
@@ -50,8 +50,39 @@
         </div>
     </header>
 
+    <div class="add">
+        <button type="primary"  class="layui-btn layui-btn-radius layui-btn-normal">新增</button>
+        <button type="success"  class="layui-btn layui-btn-radius">导出Excel</button>
+    </div>
+
     <!-- 表格区域 -->
-    <table class="layui-hide" id="test"></table>
+    <table class="bookTop" cellpadding="0" cellspacing="0">
+        <tbody class="bookFrom" cellpadding="0" cellspacing="0">
+            <tr>
+                <th class="bookName">书名<span class="glyphicon glyphicon-chevron-up up"></span>
+                    <span class="glyphicon glyphicon-chevron-down down"></span>
+                </th>
+                <th class="coverImg">封面图</th>
+                <th class="bookAuthor">作者</th>
+                <th class="bookDesc">简介</th>
+                <th class="rate">评分<span class="glyphicon glyphicon-chevron-up rateUp"></span>
+                <span class="glyphicon glyphicon-chevron-down rateDown"></span></th>
+                <th class="handle">操作</th>
+            </tr>
+            <!-- <tr>
+                <td class="bookName"></td>
+                <td class="coverImg"><img src="" alt=""></td>
+                <td class="bookAuthor"></td>
+                <td class="bookDesc"></td>
+                <td class="rate"></td>
+                <td class="handle">
+                    <a href=""><span class="glyphicon glyphicon-paperclip"></span> 详情</a>
+                    <a href=""><span class="glyphicon glyphicon-edit"></span> 编辑</a>
+                    <a href=""><span class="glyphicon glyphicon-trash"></span> 删除</a>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
 
 
     <!-- 页脚区域 -->
@@ -59,9 +90,10 @@
         <p class="bq">© 2022 三味书屋 隐私政策 京ICP证080268号 京ICP备10005211号</p>
     </footer>
 </body>
+
 <script src="./js/jquery.js"></script>
 <script src="./js/axios.min.js"></script>
-<script src="./js/layui.js"></script>
+<script src="./layui/layui.js"></script>
 <script src="./js/BookManager.js"></script>
 
 </html>
