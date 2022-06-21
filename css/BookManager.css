@@ -17,6 +17,10 @@
     cursor: pointer;
 }
 
+.active {
+    color: skyblue;
+}
+
 .bookFrom .bookName {
     height: 20px;
     width: 10%;
@@ -72,7 +76,7 @@ td {
 #topScroll {
     position: fixed;
     display: none;
-    top:550px;
+    top: 550px;
     right: 15px;
     width: 50px;
     height: 50px;
@@ -84,4 +88,59 @@ td {
     box-sizing: border-box;
     cursor: pointer;
     color: skyblue;
+}
+
+
+
+.layui-laypage input {
+    display: inline-block;
+    width: 40px;
+    margin: 0 10px;
+    padding: 0 3px;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.layui-laypage {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 100px;
+}
+
+.delBtn,
+.editBtn {
+    background-color: #fff;
+}
+
+.form-group {
+    vertical-align: middle;
+}
+
+.form-group label {
+    width: 50px;
+    height: 50px;
+}
+
+.model-add input[type='text'] {
+    vertical-align: middle;
+    padding:0 10px;
+    width: 91%
+}
+
+.jinggao{
+    color: red;
+    font-size: 20px;
+}
+
+.isSure{
+    display: inline-block;
+    font-size: 18px;
+}
+
+.dayin {
+    font-size: 15px;
+    border-radius: 100px;
 }
