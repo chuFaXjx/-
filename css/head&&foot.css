@@ -53,6 +53,15 @@ h1 {
     position: relative;
 }
 
+.close {
+    display: none;
+    z-index: 999;
+    position: absolute;
+    right: 47px;
+    top: 24px;
+    font-size: 18px;
+}
+
 input[type="text"] {
     margin-top: 15px;
 }
@@ -91,6 +100,7 @@ input[type="text"] {
     text-align: center;
     line-height: 41px;
     z-index: 999;
+    border-bottom: 1px solid #ccc;
     /* box-shadow: 8px 8px 4px #ccc; */
     /* border-bottom: 1px solid #b2b2b2; */
 }

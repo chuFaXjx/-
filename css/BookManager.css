@@ -10,19 +10,6 @@
     margin-top: 10px;
 }
 
-.search {
-    position: relative;
-}
-
-.close {
-    z-index: 999;
-    position: absolute;
-    right: 47px;
-    top: 24px;
-    font-size: 18px;
-
-}
-
 .bookFrom .up,
 .down,
 .rateUp,
@@ -139,6 +126,7 @@ td {
 .bookTop .coverImg img {
     width: 100px;
     height: 100px;
+    cursor: pointer;
 }
 
 #topScroll {
@@ -211,4 +199,14 @@ td {
 .dayin {
     font-size: 15px;
     border-radius: 100px;
+}
+
+.photoviewer-modal{
+    opacity: 0.95;
+    border-radius: 20px;
+}
+
+.photoviewer-stage {
+    border-top: none;
+    border-bottom: none;
 }

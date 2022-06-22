@@ -9,27 +9,29 @@ topShow() // 渲染排行榜
 
 // 搜索书名
 function searchBooks() {
-    $('#searchInput').keyup(async function () {
-        $('.sanjiao').show()
-        $('.searchLists').show();
-        $('.close').show();
-        try {
-            let { data } = await axios({
-                method: 'get',
-                url: 'http://localhost:3005/books',
-                params: {
-                    name_like: $('#searchInput').val()
-                }
-            })
-            data.data.forEach(function (item, idx) {
+    $('#btn').click(async function () {
+        if ($('#searchInput').val() !== '') {
+            $('.sanjiao').show()
+            $('.searchLists').show();
+            $('.close').show();
+            try {
+                let { data } = await axios({
+                    method: 'get',
+                    url: 'http://localhost:3005/books',
+                    params: {
+                        name_like: $('#searchInput').val()
+                    }
+                })
                 $('.searchLists').html('')
-                let li = $(`
+                data.data.forEach(function (item, idx) {
+                    let li = $(`
                         <li class="searchList"><a href="detailPage.html?id=${item.id}">${item.name} 作者：${item.author}</a></li>
                     `)
-                $('.searchLists').append(li)
-            })
-        } catch (e) {
-            console.log(e);
+                    $('.searchLists').append(li)
+                })
+            } catch (e) {
+                console.log(e);
+            }
         }
     })
 

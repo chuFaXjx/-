@@ -1,6 +1,5 @@
 
 
-
 searchBooks()// 搜索书名
 
 booksShow() // 请求数据并渲染表格
@@ -34,30 +33,32 @@ let pageData = [];
 
 // 搜索书名
 function searchBooks() {
-    $('#searchInput').keyup(async function () {
-        $('.sanjiao').show()
-        $('.searchLists').show();
-        $('.close').show();
-        try {
-            let { data } = await axios({
-                method: 'get',
-                url: 'http://localhost:3005/books',
-                params: {
-                    name_like: $('#searchInput').val()
-                }
-            })
-            data.data.forEach(function (item, idx) {
+    $('#btn').click(async function () {
+        if ($('#searchInput').val() !== '') {
+            $('.sanjiao').show()
+            $('.searchLists').show();
+            $('.close').show();
+            try {
+                let { data } = await axios({
+                    method: 'get',
+                    url: 'http://localhost:3005/books',
+                    params: {
+                        name_like: $('#searchInput').val()
+                    }
+                })
                 $('.searchLists').html('')
-                let li = $(`
+                data.data.forEach(function (item, idx) {
+                    let li = $(`
                         <li class="searchList"><a href="detailPage.html?id=${item.id}">${item.name} 作者：${item.author}</a></li>
                     `)
-                $('.searchLists').append(li)
-            })
-        } catch (e) {
-            console.log(e);
+                    $('.searchLists').append(li)
+                })
+            } catch (e) {
+                console.log(e);
+            }
         }
     })
-    
+
     $('.close').click(function () {
         $('#searchInput').val('')
         $('.sanjiao').hide()
@@ -79,6 +80,46 @@ async function booksShow() {
         console.log(error);
     }
 }
+
+// 给图片绑定点击事件 点击打开预览
+$('.bookTop').on('click', 'img', async function () {
+    let { data } = await getPage(currentPage, pageSize, _sort, _order);
+
+    let imgIdx = $(this).parent().parent().index() - 1
+
+    let imgArr = [];
+    data.data.forEach(function (item, idx) {
+        let arr = {
+            src: item.coverImg,
+            title: item.name
+        }
+        imgArr.push(arr)
+    })
+    // 定义选项
+    var options = {  // optionName: 'option value'
+        index: imgIdx,// 从第一张图片开始
+        fixedModalSize: true, //设置照片查看器打开时的大小
+        modalWidth: '80%',
+        modalHeight: '80%',
+        initMaximized: false,//模态大小将设置为图像大小或您使用 modalWidth 和 modalHeight 设置的大小
+        initModalPos: { //手动设置模态位置
+            top: '60px',
+            left: '150px',
+        },
+        initAnimation: false,//如果为 false，则在插件初始化时不会有动画。
+        i18n: {
+            close: '关闭',
+            minimize: '最小化',
+            maximize: '最大化',
+            prev: '上一张',
+            next: '下一张',
+            fullscreen: '全屏',
+            actualSize: '实际尺寸',
+        }
+    }
+    // 初始化插件
+    var viewer = new PhotoViewer(imgArr, options);
+})
 
 //书名根据id排正序 从小到大
 function sortUp() {
@@ -266,7 +307,6 @@ $('.bookTop').on('click', '.delBtn', function () {
     })
 })
 
-
 // 分页器功能
 function sorter() {
     layui.use('laypage', function () {
@@ -277,7 +317,7 @@ function sorter() {
             laypage.render({
                 elem: 'test1',//注意，这里的 test1 是 ID，不用加 # 号
                 count: value.headers['x-total-count'],//数据总数，从服务端得到
-                layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip'],
+                layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
                 limit: 5, //每页显示的条数。laypage将会借助 count 和 limit 计算出分页数。
                 limits: [5, 10, 20, 30, 40, 50, 100],
                 hash: true,
@@ -346,6 +386,7 @@ function readerTable(data) {
                 </tr>`)
 
         $('.bookTop').append(tr)
+
 
         layui.use('rate', function () {
             //渲染
