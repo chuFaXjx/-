@@ -9,8 +9,10 @@ topShow() // 渲染排行榜
 
 // 搜索书名
 function searchBooks() {
-    $('.btn').click(async function () {
-        $('.searchLists').css('display', 'block')
+    $('#searchInput').keyup(async function () {
+        $('.sanjiao').show()
+        $('.searchLists').show();
+        $('.close').show();
         try {
             let { data } = await axios({
                 method: 'get',
@@ -29,6 +31,13 @@ function searchBooks() {
         } catch (e) {
             console.log(e);
         }
+    })
+
+    $('.close').click(function () {
+        $('#searchInput').val('')
+        $('.sanjiao').hide()
+        $('.searchLists').hide();
+        $('.close').hide();
     })
 }
 

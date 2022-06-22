@@ -34,8 +34,10 @@ let pageData = [];
 
 // 搜索书名
 function searchBooks() {
-    $('.btn').click(async function () {
-        $('.searchLists').css('display', 'block')
+    $('#searchInput').keyup(async function () {
+        $('.sanjiao').show()
+        $('.searchLists').show();
+        $('.close').show();
         try {
             let { data } = await axios({
                 method: 'get',
@@ -45,15 +47,22 @@ function searchBooks() {
                 }
             })
             data.data.forEach(function (item, idx) {
-                // $('.searchLists').html('')
+                $('.searchLists').html('')
                 let li = $(`
-                        <li class="searchList"><a href="#">${item.name} 作者：${item.author}</a></li>
+                        <li class="searchList"><a href="detailPage.html?id=${item.id}">${item.name} 作者：${item.author}</a></li>
                     `)
                 $('.searchLists').append(li)
             })
         } catch (e) {
             console.log(e);
         }
+    })
+    
+    $('.close').click(function () {
+        $('#searchInput').val('')
+        $('.sanjiao').hide()
+        $('.searchLists').hide();
+        $('.close').hide();
     })
 }
 

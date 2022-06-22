@@ -26,6 +26,8 @@
             <!-- <div class="col-lg-6 search"> -->
             <div class="input-group search">
                 <input type="text" class="form-control" placeholder="请输入书名" id="searchInput">
+                <span class="glyphicon glyphicon-remove-circle close"></span>
+                <div class="sanjiao"></div>
                 <ul class="searchLists">
                     <!-- <a href="#">
                             <li class="searchList"></li>
@@ -52,7 +54,7 @@
     </header>
 
     <div class="add">
-        <button type="primary" class="layui-btn layui-btn-radius layui-btn-normal" id="newAdd">新增</button>
+        <button type="primary" class="layui-btn layui-btn-radius layui-btn-normal" id="newAdd">新增书籍</button>
         <button type="success" class="layui-btn layui-btn-radius" id="export">导出Excel</button>
         <button class="layui-btn layui-btn-warm layui-icon dayin">&#xe66d打印</button>
     </div>
@@ -60,15 +62,15 @@
     <!-- 表格区域 -->
     <table class="bookTop" id="bookTop" cellpadding="0" cellspacing="0">
         <tbody class="bookFrom" cellpadding="0" cellspacing="0">
-            <tr>
-                <th class="bookName">书名<span class="glyphicon glyphicon-chevron-up up"></span>
-                    <span class="glyphicon glyphicon-chevron-down down"></span>
+            <tr class="tr">
+                <th class="bookName">书名<span class="glyphicon glyphicon-triangle-top up"></span>
+                    <span class="glyphicon glyphicon-triangle-bottom down"></span>
                 </th>
                 <th class="coverImg">封面图</th>
                 <th class="bookAuthor">作者</th>
                 <th class="bookDesc">简介</th>
-                <th class="rate">评分<span class="glyphicon glyphicon-chevron-up rateUp"></span>
-                    <span class="glyphicon glyphicon-chevron-down rateDown"></span>
+                <th class="rate">评分<span class="glyphicon glyphicon-triangle-top rateUp"></span>
+                    <span class="glyphicon glyphicon-triangle-bottom rateDown"></span>
                 </th>
                 <th class="handle">操作</th>
             </tr>

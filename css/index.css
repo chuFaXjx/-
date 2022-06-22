@@ -60,25 +60,44 @@ input[type="text"] {
 .searchLists {
     display: none;
     position: absolute;
-    width: 326;
-    height: 67px;
-    top: 55px;
-    background-color: #fff;
+    margin-top: 7px;
+    width: 300px;
+    top: 60px;
+    border: 1px solid #ccc;
+    border-top: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.sanjiao {
+    display: none;
+    position: absolute;
+    top: 47px;
+    left: 150px;
+    width: 0px;
+    height: 0px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
 }
 
 .searchList a {
-    z-index: 999;
-    cursor: pointer;
     display: inline-block;
+    background-color: #fff;
     color: #000;
     width: 300px;
     height: 41px;
     text-align: center;
     line-height: 41px;
-    box-shadow: 8px 8px 4px #ccc;
-    border-bottom: 1px solid #ccc;
+    z-index: 999;
+    /* box-shadow: 8px 8px 4px #ccc; */
+    /* border-bottom: 1px solid #b2b2b2; */
 }
 
+.searchList a:hover {
+    background-color: #ccc;
+}
 #btn {
     margin-top: 2px;
     outline: none;

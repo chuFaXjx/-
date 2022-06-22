@@ -10,6 +10,19 @@
     margin-top: 10px;
 }
 
+.search {
+    position: relative;
+}
+
+.close {
+    z-index: 999;
+    position: absolute;
+    right: 47px;
+    top: 24px;
+    font-size: 18px;
+
+}
+
 .bookFrom .up,
 .down,
 .rateUp,
@@ -18,12 +31,27 @@
 }
 
 .active {
-    color: skyblue;
+    color: rgb(12, 229, 236) !important;
 }
 
 .bookFrom .bookName {
     height: 20px;
     width: 10%;
+    position: relative;
+}
+
+.up {
+    position: absolute;
+    top: 23px;
+    left: 75px;
+    color: #b2b2b2;
+}
+
+.down {
+    position: absolute;
+    top: 35px;
+    left: 75px;
+    color: #b2b2b2;
 }
 
 .bookFrom .coverImg {
@@ -46,6 +74,46 @@
 .bookFrom .rate {
     width: 24%;
     height: 20px;
+    position: relative;
+}
+
+.rateUp {
+    position: absolute;
+    top: 23px;
+    left: 155px;
+    color: #b2b2b2;
+}
+
+.rateDown {
+    position: absolute;
+    top: 35px;
+    left: 155px;
+    color: #b2b2b2;
+}
+
+.bookFrom .tr th {
+    text-align: center;
+    line-height: 50px;
+}
+
+.bookFrom tr td:nth-child(1) {
+    text-align: center;
+}
+
+.bookFrom tr td:nth-child(3) {
+    text-align: center;
+}
+
+.bookFrom tr td:nth-child(2) {
+    text-align: center;
+}
+
+.bookFrom tr td:nth-child(5) {
+    text-align: center;
+}
+
+.bookFrom tr td:nth-child(6) {
+    text-align: center;
 }
 
 .bookFrom .handle {
@@ -126,16 +194,16 @@ td {
 
 .model-add input[type='text'] {
     vertical-align: middle;
-    padding:0 10px;
+    padding: 0 10px;
     width: 91%
 }
 
-.jinggao{
+.jinggao {
     color: red;
     font-size: 20px;
 }
 
-.isSure{
+.isSure {
     display: inline-block;
     font-size: 18px;
 }
