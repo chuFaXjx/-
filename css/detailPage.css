@@ -1,6 +1,7 @@
 .detailBox {
     width: 100%;
     height: calc(100vh - 230px);
+    display: block;
 }
 
 .bookMore {

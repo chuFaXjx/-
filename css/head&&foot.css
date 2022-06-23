@@ -135,6 +135,8 @@ input[type="text"] {
 }
 
 .footer {
+    display: block;
+    margin-top:calc(100vh - (100vh - 230px));
     height: 150px;
     background-color: #333333;
     overflow: hidden;

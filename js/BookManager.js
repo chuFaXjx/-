@@ -67,7 +67,7 @@ function searchBooks() {
     })
 }
 
-// 请求数据并渲染表格
+// 首次渲染表格
 async function booksShow() {
     try {
         let { data } = await axios({
@@ -258,7 +258,7 @@ $('.bookTop').on('click', '.editBtn', function () {
                     coverImg: item.coverImg,
                 }
             })
-
+            layer.msg('编辑成功', { icon: 1, time: 1000 });
             let res = getPage(currentPage, pageSize, _sort, _order)
 
             res.then(value => {
@@ -298,6 +298,7 @@ $('.bookTop').on('click', '.delBtn', function () {
             res.then(value => {
                 $('.bookFrom tr:not(:first)').remove()
                 readerTable(value.data.data)
+                layer.msg('删除成功', { icon: 2, time: 1000 });
             }, error => {
                 console.log(error);
             })
@@ -452,23 +453,27 @@ $('#newAdd').click(async function () {
     });
 
     $('.layui-layer-btn0').click(async function () {
-        currentPage = 3;
-        try {
-            let { data } = await axios({
-                method: 'post',
-                url: 'http://localhost:3005/books',
-                data: {
-                    name: $('#shuName').val(),
-                    author: $('#authorName').val(),
-                    desc: $('#jianjie').val(),
-                    coverImg: $('#coverImg').val(),
-                    rate: rateValue,
-                }
-            })
-        } catch (error) {
-            console.log(error);
+        if ($('#shuName').val() !== '' && $('#coverImg').val() !== '' && $('#authorName').val() !== '' && $('#jianjie').val() !== '') {
+            try {
+                let { data } = await axios({
+                    method: 'post',
+                    url: 'http://localhost:3005/books',
+                    data: {
+                        name: $('#shuName').val(),
+                        author: $('#authorName').val(),
+                        desc: $('#jianjie').val(),
+                        coverImg: $('#coverImg').val(),
+                        rate: rateValue,
+                    }
+                })
+            } catch (error) {
+                console.log(error);
+            }
+            layer.msg('新增书籍成功', { icon: 1, time: 1000 });
+            sorter()
+        } else {
+            layer.msg('输入内容不能为空，请重新输入', { icon: 2, time: 1000 });
         }
-        sorter()
     })
 })
 
