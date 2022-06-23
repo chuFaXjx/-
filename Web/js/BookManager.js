@@ -115,6 +115,9 @@ $('.bookTop').on('click', 'img', async function () {
             next: '下一张',
             fullscreen: '全屏',
             actualSize: '实际尺寸',
+            zoomIn: '放大',
+            zoomOut: '缩小',
+            rotateRight:'向右旋转'
         }
     }
     // 初始化插件
