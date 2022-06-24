@@ -109,6 +109,7 @@ $('.bookTop').on('click', 'img', async function () {
             left: '150px',
         },
         initAnimation: false,//如果为 false，则在插件初始化时不会有动画。
+        // 国际化 中英互换
         i18n: {
             close: '关闭',
             minimize: '最小化',
@@ -352,7 +353,7 @@ function sorter() {
 }
 
 //封装分页请求函数
-async function getPage(page, limit, sort, order) {
+async function getPage(page='', limit='', sort='', order='') {
     try {
         let res = await axios({
             method: 'get',
@@ -540,10 +541,10 @@ $('#export').click(async function () {
         let arr = [item.name, item.author, item.coverImg, item.desc, item.rate]
         books.push(arr);
     })
-    let sheet = XLSX.utils.aoa_to_sheet(books);
+    // let sheet = XLSX.utils.aoa_to_sheet(books);
 
     // 使用table_to_sheet($('#bookTop')[0])进行导出 
-    //let sheet = XLSX.utils.table_to_sheet($('#bookTop')[0])
+    let sheet = XLSX.utils.table_to_sheet($('#bookTop')[0])
 
     openDownloadDialog(sheet2blob(sheet), '三味书屋.xlsx');
 })
