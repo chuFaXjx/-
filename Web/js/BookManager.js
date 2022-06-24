@@ -56,6 +56,8 @@ function searchBooks() {
             } catch (e) {
                 console.log(e);
             }
+        } else {
+            layer.msg('输入内容不能为空，请重新输入', { icon: 2, time: 1000 });
         }
     })
 
@@ -539,6 +541,10 @@ $('#export').click(async function () {
         books.push(arr);
     })
     let sheet = XLSX.utils.aoa_to_sheet(books);
+
+    // 使用table_to_sheet($('#bookTop')[0])进行导出 
+    //let sheet = XLSX.utils.table_to_sheet($('#bookTop')[0])
+
     openDownloadDialog(sheet2blob(sheet), '三味书屋.xlsx');
 })
 
